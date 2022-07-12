@@ -12,8 +12,5 @@
 <script>
 export default {
   name: "DevPreview",
-  props: {
-    msg: String,
-  },
 };
 </script>
