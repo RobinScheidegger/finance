@@ -1,5 +1,5 @@
 <template>
-  <IconCard> </IconCard>
+  <IconCard icon="add-new"> </IconCard>
 </template>
 
 <script>

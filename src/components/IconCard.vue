@@ -1,6 +1,10 @@
 <template>
   <div class="icon-card">
-    <img class="icon-card__icon" src="@/assets/icons/icon-settings.jpg" />
+    <img
+      class="icon-card__icon"
+      :src="require(`@/assets/icons/icon-${icon}.jpg`)"
+      :style="style"
+    />
   </div>
 </template>
 
@@ -10,11 +14,17 @@ export default {
   props: {
     icon: {
       type: String,
-      default: "icon-settings",
+      default: "settings",
     },
     size: {
       type: Number,
-      default: 24,
+      default: 32,
+    },
+  },
+
+  computed: {
+    style() {
+      return "width: " + this.size + "px";
     },
   },
 };
