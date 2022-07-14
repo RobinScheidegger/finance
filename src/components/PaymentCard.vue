@@ -25,12 +25,17 @@
           </div>
         </div>
         <div class="content__right">
+<<<<<<< HEAD
           <div class="right__amount title-2" v-if="type === 'payment'">
             CHF 32.00
           </div>
           <div class="right__icon">
             <IconCard icon="add-new" v-if="type === 'create-new'" />
           </div>
+=======
+          <div class="right__amount title-2">CHF 32.00</div>
+          <div class="right__icon"></div>
+>>>>>>> 218fc3fc8c393f508fd222361fe2b7b6dadf3fb2
         </div>
       </div>
     </CardBorder>
@@ -39,13 +44,19 @@
 
 <script lang="typescript">
 import CardBorder from "@/components/CardBorder.vue";
+<<<<<<< HEAD
 import IconCard from "@/components/IconCard.vue";
 
+=======
+>>>>>>> 218fc3fc8c393f508fd222361fe2b7b6dadf3fb2
 export default {
   name: "PaymentCard",
   components: {
     CardBorder,
+<<<<<<< HEAD
     IconCard
+=======
+>>>>>>> 218fc3fc8c393f508fd222361fe2b7b6dadf3fb2
   },
   props: {
     type: {
@@ -63,6 +74,10 @@ export default {
     margin: 15px 20px;
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 218fc3fc8c393f508fd222361fe2b7b6dadf3fb2
     .content__left {
       .left__top {
         &.payment {
@@ -83,10 +98,13 @@ export default {
     }
     .content__right {
       .right__amount {
+<<<<<<< HEAD
         margin-top: 20px;
       }
       .right__icon {
         margin-right: 20px;
+=======
+>>>>>>> 218fc3fc8c393f508fd222361fe2b7b6dadf3fb2
       }
     }
   }
