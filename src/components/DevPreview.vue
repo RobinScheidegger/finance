@@ -7,13 +7,15 @@
   <div class="test title-2">title-2</div>
   <div class="test title-3">title-3</div>
   <div class="test title-4">title-4</div>
+  <CardBorder></CardBorder>
 </template>
 
 <script>
+import CardBorder from "@/components/CardBorder/CardBorder.vue";
 export default {
   name: "DevPreview",
-  props: {
-    msg: String,
+  components: {
+    CardBorder,
   },
 };
 </script>
