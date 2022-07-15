@@ -10,11 +10,34 @@
       >
         Lorem ipsum
       </div>
-      <div class="left__bottom">Lorem ipsum dolor si amet</div>
+      <div
+        class="left__bottom subtitle-4"
+        :class="{
+          '--create': type === 'create-new',
+          '--movement': type === 'movement',
+        }"
+      >
+        Lorem ipsum dolor si amet
+      </div>
     </div>
     <div class="payment-card__right">
-      <IconCard />
-      <div class="right__amount">CHF 30.50</div>
+      <IconCard
+        :type="iconType"
+        :size="iconSize"
+        :opacity="iconOpacity"
+        class="right__icon"
+        :class="{
+          '--create': type === 'create-new',
+          '--movement': type === 'movement',
+        }"
+      />
+      <div
+        class="right__amount title-2"
+        v-if="type === 'movement'"
+        :class="{ '--light': movement?.type != 'payment' }"
+      >
+        CHF 30.50
+      </div>
     </div>
   </div>
 </template>
@@ -44,6 +67,18 @@ export default {
         amount: 30.50
       })
     }
+  },
+
+  computed: {
+    iconType() {
+      return this.type === 'create-new' ? "add-new" : this.movement.type;
+    },
+    iconSize() {
+      return this.type === 'movement' ? 24 : 32
+    },
+    iconOpacity() {
+      return this.type === 'movement' ? 0.7 : 0.5
+    }
   }
 };
 </script>
@@ -70,10 +105,35 @@ export default {
         color: #cccccc;
       }
     }
+    .left__bottom {
+      &.--create {
+        color: #999999;
+      }
+      &.--movement {
+        margin-top: 7px;
+      }
+    }
   }
 
   &__right {
-    background-color: orange;
+    margin-right: 20px;
+
+    .right__icon {
+      &.--create {
+        margin: 24px 20px 24px 0px;
+      }
+      &.--movement {
+        margin-top: 10px;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    .right__amount {
+      margin: 1px 0px 15px 0px;
+      &.--light {
+        color: #666666;
+      }
+    }
   }
 }
 </style>
