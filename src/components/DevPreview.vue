@@ -1,5 +1,13 @@
 <template>
-  <PaymentCard type="create-new"> </PaymentCard>
+  <PaymentCard
+    type="payment"
+    :content="{
+      top: '01.11.2021',
+      bottom: 'Essen in London',
+      price: -20.5,
+    }"
+  >
+  </PaymentCard>
 </template>
 
 <script>

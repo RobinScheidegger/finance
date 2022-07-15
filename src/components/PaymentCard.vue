@@ -26,7 +26,7 @@
         </div>
         <div class="content__right">
           <div class="right__amount title-2" v-if="type === 'payment'">
-            {{ content.price }} CHF
+            CHF {{ content.price?.toFixed(2) }}
           </div>
           <div class="right__icon" v-if="type === 'create-new'">
             <IconCard icon="add-new" />
