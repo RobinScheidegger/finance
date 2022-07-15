@@ -1,13 +1,13 @@
 <template>
-  <IconCard> </IconCard>
+  <PaymentCard> </PaymentCard>
 </template>
 
 <script>
-import IconCard from "@/components/IconCard.vue";
+import PaymentCard from "@/components/PaymentCard.vue";
 export default {
   name: "DevPreview",
   components: {
-    IconCard,
+    PaymentCard,
   },
 };
 </script>
