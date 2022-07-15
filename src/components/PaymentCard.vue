@@ -12,7 +12,7 @@
               'subtitle-4': type === 'payment',
             }"
           >
-            01.11.2021
+            {{ content.top }}
           </div>
           <div
             class="left__bottom subtitle-4"
@@ -21,15 +21,15 @@
               'create-new': type === 'create-new',
             }"
           >
-            Essen in London
+            {{ content.bottom }}
           </div>
         </div>
         <div class="content__right">
           <div class="right__amount title-2" v-if="type === 'payment'">
-            CHF 32.00
+            {{ content.price }} CHF
           </div>
-          <div class="right__icon">
-            <IconCard icon="add-new" v-if="type === 'create-new'" />
+          <div class="right__icon" v-if="type === 'create-new'">
+            <IconCard icon="add-new" />
           </div>
         </div>
       </div>
@@ -52,6 +52,14 @@ export default {
         type: String,
         // payment / create-new
         default: 'payment',
+    },
+    content: {
+      type: Object,
+      default: () => ({
+        top: '01.11.2021',
+        bottom: 'Essen in London',
+        price: 20.50
+      })
     }
   }
 };
@@ -64,6 +72,7 @@ export default {
     display: flex;
     justify-content: space-between;
     .content__left {
+      height: fit-content;
       .left__top {
         &.payment {
           color: #cccccc;
@@ -82,11 +91,14 @@ export default {
       }
     }
     .content__right {
+      max-height: fit-content;
       .right__amount {
         margin-top: 20px;
       }
       .right__icon {
         margin-right: 20px;
+        margin-top: 9px;
+        opacity: 0.5;
       }
     }
   }
