@@ -1,21 +1,13 @@
 <template>
-  <PaymentCard
-    type="payment"
-    :content="{
-      top: '01.11.2021',
-      bottom: 'Essen in London',
-      price: -20.5,
-    }"
-  >
-  </PaymentCard>
+  <IconCard> </IconCard>
 </template>
 
 <script>
-import PaymentCard from "@/components/PaymentCard.vue";
+import IconCard from "@/components/IconCard.vue";
 export default {
   name: "DevPreview",
   components: {
-    PaymentCard,
+    IconCard,
   },
 };
 </script>
