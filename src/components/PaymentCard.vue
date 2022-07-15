@@ -8,7 +8,7 @@
           'subtitle-4': type === 'movement',
         }"
       >
-        Lorem ipsum
+        {{ contentTop }}
       </div>
       <div
         class="left__bottom subtitle-4"
@@ -17,7 +17,7 @@
           '--movement': type === 'movement',
         }"
       >
-        Lorem ipsum dolor si amet
+        {{ contentBottom }}
       </div>
     </div>
     <div class="payment-card__right">
@@ -36,7 +36,7 @@
         v-if="type === 'movement'"
         :class="{ '--light': movement?.type != 'payment' }"
       >
-        CHF 30.50
+        CHF {{ movement?.amount?.toFixed(2) }}
       </div>
     </div>
   </div>
@@ -53,31 +53,29 @@ export default {
   props: {
     type: {
       type: String,
-      // options) movement / create-new
       default: 'movement'
     },
     movement: {
       type: Object,
-      default: () => ({
-        // options) payment / save-money / salary
-        type: 'payment',
-        date: new Date("2021-11-01"),
-        description: 'Essen in London',
-        category: ['Lohn', 'Sparen'],
-        amount: 30.50
-      })
+      default: () => ({})
     }
   },
 
   computed: {
     iconType() {
-      return this.type === 'create-new' ? "add-new" : this.movement.type;
+      return this.type === 'create-new' ? "add-new" : this.movement?.type;
     },
     iconSize() {
       return this.type === 'movement' ? 24 : 32
     },
     iconOpacity() {
       return this.type === 'movement' ? 0.7 : 0.5
+    },
+    contentTop() {
+      return this.type === 'create-new' ? "Neuen" : `${this.movement?.date?.getDate() < 10 ? 0 : ""}${this.movement?.date?.getDate()}.${this.movement?.date?.getMonth() + 1 < 10 ? 0 : ""}${this.movement?.date?.getMonth() + 1}.${this.movement?.date?.getFullYear()}`;
+    },
+    contentBottom() {
+      return this.type === 'create-new' ? "Eintrag erstellen" : this.movement?.description;
     }
   }
 };

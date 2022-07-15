@@ -1,5 +1,15 @@
 <template>
-  <PaymentCard> </PaymentCard>
+  <PaymentCard
+    type="movement"
+    :movement="{
+      type: 'payment',
+      date: new Date('2021-11-01'),
+      description: 'Essen in London',
+      category: ['Lohn', 'Sparen'],
+      amount: 30.5,
+    }"
+  >
+  </PaymentCard>
 </template>
 
 <script>
