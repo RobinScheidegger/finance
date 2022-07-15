@@ -1,13 +1,23 @@
 <template>
-  <IconCard icon="add-new"> </IconCard>
+  <PaymentCard
+    type="movement"
+    :movement="{
+      type: 'payment',
+      date: new Date('2021-11-01'),
+      description: 'Essen in London',
+      category: ['Lohn', 'Sparen'],
+      amount: 30.5,
+    }"
+  >
+  </PaymentCard>
 </template>
 
 <script>
-import IconCard from "@/components/IconCard.vue";
+import PaymentCard from "@/components/PaymentCard.vue";
 export default {
   name: "DevPreview",
   components: {
-    IconCard,
+    PaymentCard,
   },
 };
 </script>

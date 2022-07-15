@@ -1,8 +1,8 @@
 <template>
-  <div class="icon-card">
+  <div class="icon-card" :style="height">
     <img
       class="icon-card__icon"
-      :src="require(`@/assets/icons/icon-${icon}.jpg`)"
+      :src="require(`@/assets/icons/icon-${type}.jpg`)"
       :style="style"
     />
   </div>
@@ -12,19 +12,26 @@
 export default {
   name: "IconCard",
   props: {
-    icon: {
+    type: {
       type: String,
       default: "settings",
     },
     size: {
       type: Number,
-      default: 32,
+      default: 24,
+    },
+    opacity: {
+      type: Number,
+      default: 1,
     },
   },
 
   computed: {
     style() {
-      return "width: " + this.size + "px";
+      return "width: " + this.size + "px;" + "opacity: " + this.opacity + ";";
+    },
+    height() {
+      return "height: " + this.size + "px;";
     },
   },
 };
