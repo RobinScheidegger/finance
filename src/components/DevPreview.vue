@@ -8,6 +8,7 @@
       category: ['Lohn', 'Sparen'],
       amount: 30.5,
     }"
+    @clickedCard="test"
   >
   </PaymentCard>
 </template>
@@ -18,6 +19,11 @@ export default {
   name: "DevPreview",
   components: {
     PaymentCard,
+  },
+  methods: {
+    test() {
+      console.log("fisch");
+    },
   },
 };
 </script>
