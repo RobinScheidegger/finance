@@ -1,19 +1,28 @@
 <template>
   <div class="payment-overview">
-    <div class="payment-overview__create-new">
-      <PaymentCard type="create-new" />
+    <div class="payment-overview__cards">
+      <div class="cards__create-new">
+        <PaymentCard type="create-new" />
+      </div>
+      <div class="cards__payments">
+        <div
+          class="payments__payment"
+          v-for="payment in paymentArray"
+          :key="payment"
+        >
+          <PaymentCard
+            type="movement"
+            :movement="payment"
+            class="payment__payment-card"
+          />
+        </div>
+      </div>
     </div>
-    <div class="payment-overview__payments">
-      <div
-        class="payments__payment"
-        v-for="payment in paymentArray"
-        :key="payment"
-      >
-        <PaymentCard
-          type="movement"
-          :movement="payment"
-          class="payment__payment-card"
-        />
+    <div class="payment-overview__amount">
+      <div class="amount__text title-2">Ausgaben</div>
+      <div class="amount__value">
+        <div class="value__amount title-2">637.50</div>
+        <div class="value__from subtitle-1">/ 764.30 CHF</div>
       </div>
     </div>
   </div>
@@ -71,13 +80,33 @@ export default {
 
 <style lang="scss">
 .payment-overview {
-  &__create-new {
-    margin-bottom: 20px;
+  &__cards {
+    .cards__create-new {
+      margin-bottom: 20px;
+    }
+    .cards__payments {
+      max-height: 300px;
+      overflow: scroll;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      border-bottom: 1px solid #e1e1e1;
+
+      .payment__payment-card {
+        margin-bottom: 20px;
+      }
+    }
   }
 
-  &__payments {
-    .payment__payment-card {
-      margin-bottom: 20px;
+  &__amount {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .amount__value {
+      display: flex;
+      gap: 4px;
     }
   }
 }
