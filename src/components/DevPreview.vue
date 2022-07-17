@@ -1,5 +1,5 @@
 <template>
-  <PaymentCard
+  <PaymentOverview
     type="movement"
     :movement="{
       type: 'payment',
@@ -10,15 +10,15 @@
     }"
     @clickedCard="test"
   >
-  </PaymentCard>
+  </PaymentOverview>
 </template>
 
 <script>
-import PaymentCard from "@/components/PaymentCard.vue";
+import PaymentOverview from "@/components/PaymentOverview.vue";
 export default {
   name: "DevPreview",
   components: {
-    PaymentCard,
+    PaymentOverview,
   },
   methods: {
     test() {
