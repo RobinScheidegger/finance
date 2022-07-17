@@ -23,7 +23,18 @@
       <div class="amount__text title-2">Ausgaben</div>
       <div class="amount__value">
         <div class="value__amount title-2">637.50</div>
-        <div class="value__from subtitle-1">/ 764.30 CHF</div>
+        <div class="value__from subtitle-1" v-if="filterArray.length === 0">
+          / 764.30
+        </div>
+        <div
+          class="value__chf"
+          :class="{
+            'subtitle-1': filterArray.length === 0,
+            'title-2': filterArray.length > 0,
+          }"
+        >
+          CHF
+        </div>
       </div>
     </div>
   </div>
@@ -40,46 +51,17 @@ export default {
   props: {
     paymentArray: {
         type: Array,
-        default: () => [
-            {
-                type: 'payment',
-                date: new Date('2021-11-01'),
-                description: 'Essen in London',
-                category: ['Essen'],
-                amount: 30.5,
-            },
-            {
-                type: 'payment',
-                date: new Date('2021-11-01'),
-                description: 'Neues Crash',
-                category: ['Schlagzeug'],
-                amount: 140.8,
-            },
-            {
-                type: 'salary',
-                date: new Date('2021-11-01'),
-                description: 'Lohn',
-                category: ['Lohn'],
-                amount: 764,
-            },
-            {
-                type: 'save-money',
-                date: new Date('2021-11-01'),
-                description: 'Sparen',
-                category: ['Sparen'],
-                amount: 764,
-            }
-        ]
+        default: () => []
     },
     filterArray: {
         type: Array,
-        default: () => ['Schlagzeug', 'Essen', 'Sparen']
+        default: () => []
     }
   },
   methods: {
     filter(allItems) {
-        if (this.filterArray.length === 0) return true;
-        else return this.filterArray.some(r=> allItems.includes(r))
+        if (this.filterArray?.length === 0) return true;
+        else return this.filterArray?.some(r=> allItems.includes(r))
     }
   }
 };
