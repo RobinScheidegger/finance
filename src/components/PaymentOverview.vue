@@ -14,6 +14,7 @@
             type="movement"
             :movement="payment"
             class="payment__payment-card"
+            v-if="filter(payment.category) === true"
           />
         </div>
       </div>
@@ -72,7 +73,13 @@ export default {
     },
     filterArray: {
         type: Array,
-        default: () => ['Schlagzeug', 'Essen']
+        default: () => ['Schlagzeug', 'Essen', 'Sparen']
+    }
+  },
+  methods: {
+    filter(allItems) {
+        if (this.filterArray.length === 0) return true;
+        else return this.filterArray.some(r=> allItems.includes(r))
     }
   }
 };
@@ -81,16 +88,16 @@ export default {
 <style lang="scss">
 .payment-overview {
   &__cards {
+    max-height: 550px;
+    overflow: scroll;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     .cards__create-new {
       margin-bottom: 20px;
     }
     .cards__payments {
-      max-height: 300px;
-      overflow: scroll;
-      scrollbar-width: none;
-      &::-webkit-scrollbar {
-        display: none;
-      }
       border-bottom: 1px solid #e1e1e1;
 
       .payment__payment-card {
