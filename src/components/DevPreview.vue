@@ -1,5 +1,5 @@
 <template>
-  <MonthlySavingCard />
+  <MonthlySavingCard @clickedCard="test()" />
 </template>
 
 <script>
@@ -8,6 +8,11 @@ export default {
   name: "DevPreview",
   components: {
     MonthlySavingCard,
+  },
+  methods: {
+    test() {
+      console.log("click");
+    },
   },
 };
 </script>
