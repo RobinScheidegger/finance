@@ -27,10 +27,10 @@
         date: new Date('2021-11-01'),
         description: 'Sparen',
         category: ['Sparen'],
-        amount: 764,
+        amount: 400,
       },
     ]"
-    :filterArray="['Schlagzeug', 'Sparen']"
+    :filterArray="[]"
   >
   </PaymentOverview>
 </template>
