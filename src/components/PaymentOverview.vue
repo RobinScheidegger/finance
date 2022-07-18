@@ -2,12 +2,15 @@
   <div class="payment-overview">
     <div class="payment-overview__cards">
       <div class="cards__create-new" v-if="filterArray?.length === 0">
-        <PaymentCard type="create-new" />
+        <PaymentCard
+          type="create-new"
+          @clickedCard="$emit('clickedCreateNew')"
+        />
       </div>
       <div class="cards__payments">
         <div
           class="payments__payment"
-          v-for="payment in paymentArray"
+          v-for="(payment, index) in paymentArray"
           :key="payment"
         >
           <PaymentCard
@@ -15,6 +18,7 @@
             :movement="payment"
             class="payment__payment-card"
             v-if="filter(payment.category) === true"
+            @clickedCard="$emit('clickedCard', index)"
           />
         </div>
       </div>

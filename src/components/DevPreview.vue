@@ -31,6 +31,8 @@
       },
     ]"
     :filterArray="[]"
+    @clickedCard="(i) => test1(i)"
+    @clickedCreateNew="test2()"
   >
   </PaymentOverview>
 </template>
@@ -43,8 +45,11 @@ export default {
     PaymentOverview,
   },
   methods: {
-    test() {
-      console.log("fisch");
+    test1(index) {
+      console.log("card ", index);
+    },
+    test2() {
+      console.log("create new");
     },
   },
 };
