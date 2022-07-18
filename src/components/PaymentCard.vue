@@ -1,5 +1,5 @@
 <template>
-  <div class="payment-card">
+  <div class="payment-card" @click="$emit('clickedCard')">
     <div class="payment-card__left">
       <div
         class="left__top"
@@ -89,6 +89,7 @@ export default {
 
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 
   &__left {
     display: flex;
