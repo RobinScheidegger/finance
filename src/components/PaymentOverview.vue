@@ -18,7 +18,7 @@
             :movement="payment"
             class="payment__payment-card"
             v-if="filter(payment.category) === true"
-            @clickedCard="$emit('clickedCard', index)"
+            @clickedCard="$emit('clickedPaymentCard', index)"
           />
         </div>
       </div>

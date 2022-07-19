@@ -1,6 +1,6 @@
 <template>
   <div class="monthly-saving-card" @click="$emit('clickedCard')">
-    <SavingCard
+    <SavingContent
       :saving="saving"
       type="monthly-saving"
       class="monthly-saving-card__content"
@@ -9,12 +9,12 @@
 </template>
 
 <script lang="typescript">
-import SavingCard from '@/components/SavingContent.vue'
+import SavingContent from '@/components/SavingContent.vue'
 
 export default {
   name: "MonthlySavingCard",
   components: {
-    SavingCard,
+    SavingContent,
   },
   props: {
     saving: {
