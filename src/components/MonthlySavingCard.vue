@@ -1,6 +1,10 @@
 <template>
   <div class="monthly-saving-card" @click="$emit('clickedCard')">
-    <SavingCard class="monthly-saving-card__content" />
+    <SavingCard
+      :saving="saving"
+      type="monthly-saving"
+      class="monthly-saving-card__content"
+    />
   </div>
 </template>
 
@@ -15,11 +19,7 @@ export default {
   props: {
     saving: {
         type: Object,
-        default: () => ({
-            description: 'Schlagzeug Reparatur',
-            monthlyAmount: 100.00,
-            savedAmount: 150.00
-        })
+        default: () => ({})
     }
   }
 };

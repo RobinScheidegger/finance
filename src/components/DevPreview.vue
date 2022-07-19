@@ -1,5 +1,12 @@
 <template>
-  <MonthlySavingCard @clickedCard="test()" />
+  <MonthlySavingCard
+    :saving="{
+      description: 'Schlagzeug Reparatur',
+      fixedValue: 100.0,
+      savedAmount: 150.0,
+    }"
+    @clickedCard="test()"
+  />
 </template>
 
 <script>

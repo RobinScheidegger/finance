@@ -13,7 +13,7 @@
       </div>
       <div class="amount__divider subtitle-2">/</div>
       <div class="amount__monthly title-3">
-        CHF {{ saving.monthlyAmount?.toFixed(2) }}
+        CHF {{ saving.fixedValue?.toFixed(2) }}
       </div>
     </div>
   </div>
@@ -25,15 +25,11 @@ export default {
   props: {
     type: {
         type: String,
-        default: 'saving-account',
+        default: 'monthly-saving',
     },
     saving: {
         type: Object,
-        default: () => ({
-            description: 'Schlagzeug Reparatur',
-            monthlyAmount: 100.00,
-            savedAmount: 150.00
-        })
+        default: () => ({})
     }
   }
 };
