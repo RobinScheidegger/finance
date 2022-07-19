@@ -1,7 +1,11 @@
 <template>
   <div class="monthly-saving-overview">
-    <div class="monthly-saving-overview__card">
-      <MonthlySavingCard />
+    <div
+      class="monthly-saving-overview__card"
+      v-for="saving in monthlySavings"
+      :key="saving"
+    >
+      <MonthlySavingCard :saving="saving" />
     </div>
   </div>
 </template>
@@ -10,17 +14,23 @@
 import MonthlySavingCard from "@/components/MonthlySavingCard.vue";
 
 export default {
-  name: "MonthlySavingCard",
+  name: "MonthlySavingOverview",
   components: {
     MonthlySavingCard,
   },
   props: {
-    saving: {
-        type: Object,
-        default: () => ({})
+    monthlySavings: {
+        type: Array,
+        default: () => []
     }
   }
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.monthly-saving-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+</style>
