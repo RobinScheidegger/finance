@@ -2,10 +2,13 @@
   <div class="monthly-saving-overview">
     <div
       class="monthly-saving-overview__card"
-      v-for="saving in monthlySavings"
+      v-for="(saving, index) in monthlySavings"
       :key="saving"
     >
-      <MonthlySavingCard :saving="saving" />
+      <MonthlySavingCard
+        :saving="saving"
+        @clickedCard="$emit('clickedMonthlySavingCard', index)"
+      />
     </div>
   </div>
 </template>

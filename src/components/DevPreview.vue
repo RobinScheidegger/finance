@@ -22,6 +22,7 @@
         savedAmount: 200.0,
       },
     ]"
+    @clickedMonthlySavingCard="(index) => test(index)"
   />
 </template>
 
@@ -33,8 +34,8 @@ export default {
     MonthlySavingOverview,
   },
   methods: {
-    test() {
-      console.log("click");
+    test(index) {
+      console.log("click ", index);
     },
   },
 };
