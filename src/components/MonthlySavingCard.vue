@@ -1,23 +1,17 @@
 <template>
   <div class="monthly-saving-card" @click="$emit('clickedCard')">
-    <div class="monthly-saving-card__content">
-      <div class="content__text subtitle-3">{{ saving.description }}</div>
-      <div class="content__amount">
-        <div class="amount__current subtitle-2">
-          CHF {{ saving.savedAmount?.toFixed(2) }}
-        </div>
-        <div class="amount__divider subtitle-2">/</div>
-        <div class="amount__monthly title-3">
-          CHF {{ saving.monthlyAmount?.toFixed(2) }}
-        </div>
-      </div>
-    </div>
+    <SavingCard class="monthly-saving-card__content" />
   </div>
 </template>
 
 <script lang="typescript">
+import SavingCard from '@/components/SavingContent.vue'
+
 export default {
   name: "MonthlySavingCard",
+  components: {
+    SavingCard,
+  },
   props: {
     saving: {
         type: Object,
@@ -40,18 +34,6 @@ export default {
 
   &__content {
     margin: 15px 15px 10px 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    .content__text {
-      color: #333333;
-    }
-
-    .content__amount {
-      display: flex;
-      justify-content: space-between;
-    }
   }
 }
 </style>
